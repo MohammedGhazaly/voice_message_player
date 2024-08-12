@@ -16,7 +16,6 @@ class VoiceMessageView extends StatelessWidget {
       {Key? key,
       this.backgroundColor = Colors.white,
       required this.controller,
-
       this.activeSliderColor = Colors.red,
       this.notActiveSliderColor,
       this.circlesColor = Colors.red,
@@ -50,7 +49,8 @@ class VoiceMessageView extends StatelessWidget {
         fontSize: 11,
         fontWeight: FontWeight.w500,
       ),
-      this.playPauseButtonLoadingColor = Colors.white, required this.testColor})
+      this.playPauseButtonLoadingColor = Colors.white,
+      required this.testColor})
       : super(key: key);
 
   /// The controller for the voice message view.
@@ -62,6 +62,7 @@ class VoiceMessageView extends StatelessWidget {
   ///
   final Color circlesColor;
   final Color testColor;
+
   /// The color of the active slider.
   final Color activeSliderColor;
 
@@ -130,7 +131,10 @@ class VoiceMessageView extends StatelessWidget {
           return Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              /// play pause button
+              Expanded(child: _noises(newTHeme)),
+              const SizedBox(width: 6),
+              Text(controller.remindingTime, style: counterTextStyle),
+              const SizedBox(width: 6),
               PlayPauseButton(
                 controller: controller,
                 color: color,
@@ -142,31 +146,6 @@ class VoiceMessageView extends StatelessWidget {
                 stopDownloadingIcon: stopDownloadingIcon,
                 buttonDecoration: playPauseButtonDecoration,
               ),
-
-              ///
-              const SizedBox(width: 10),
-
-              /// slider & noises
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8),
-                    _noises(newTHeme),
-                    const SizedBox(height: 4),
-                    Text(controller.remindingTime, style: counterTextStyle),
-                  ],
-                ),
-              ),
-
-              ///
-              const SizedBox(width: 12),
-
-              /// speed button
-              _changeSpeedButton(color),
-
-              ///
-              const SizedBox(width: 10),
             ],
           );
         },
