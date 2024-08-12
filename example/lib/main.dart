@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
                   children: [
                     SizedBox(height: 50.h),
                     VoiceMessageView(
+                      testColor: Colors.red,
                       controller: VoiceController(
                         audioSrc:
                             'https://dl.solahangs.com/Music/1403/02/H/128/Hiphopologist%20-%20Shakkak%20%28128%29.mp3',

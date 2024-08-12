@@ -14,8 +14,9 @@ import 'package:voice_message_package/src/widgets/play_pause_button.dart';
 class VoiceMessageView extends StatelessWidget {
   const VoiceMessageView(
       {Key? key,
-      required this.controller,
       this.backgroundColor = Colors.white,
+      required this.controller,
+
       this.activeSliderColor = Colors.red,
       this.notActiveSliderColor,
       this.circlesColor = Colors.red,
@@ -49,7 +50,7 @@ class VoiceMessageView extends StatelessWidget {
         fontSize: 11,
         fontWeight: FontWeight.w500,
       ),
-      this.playPauseButtonLoadingColor = Colors.white})
+      this.playPauseButtonLoadingColor = Colors.white, required this.testColor})
       : super(key: key);
 
   /// The controller for the voice message view.
@@ -60,7 +61,7 @@ class VoiceMessageView extends StatelessWidget {
 
   ///
   final Color circlesColor;
-
+  final Color testColor;
   /// The color of the active slider.
   final Color activeSliderColor;
 
